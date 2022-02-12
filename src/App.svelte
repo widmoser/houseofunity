@@ -1,21 +1,34 @@
 <script>
-  export let page = 'home';
-  import Home from './Home.svelte';
-  import Schedule from './Schedule.svelte';
+    export let page = 'home';
+
+    import Contact from "./Contact.svelte";
+    import Home from './Home.svelte';
+    import Schedule from './Schedule.svelte';
+    import Activities from "./Activities.svelte";
+    import Quotes from "./Quotes.svelte";
 </script>
 
 <nav>
     <ul>
-        <li><a href="/" on:click|preventDefault={() => {page = 'home'}}>Home</a></li>
-        <li><a href="/" on:click|preventDefault={() => {page = 'schedule'}}>Schedule</a></li>
+        <li><a href="/" on:click|preventDefault={() => {page = 'home'}}>Startseite</a></li>
+        <li><a href="/" on:click|preventDefault={() => {page = 'schedule'}}>Programm</a></li>
+        <li><a href="/" on:click|preventDefault={() => {page = 'contact'}}>Kontakt</a></li>
+        <li><a href="/" on:click|preventDefault={() => {page = 'activities'}}>Aktivitäten</a></li>
+        <li><a href="/" on:click|preventDefault={() => {page = 'quotes'}}>Lieder/Zitate</a></li>
     </ul>
 </nav>
 <main>
-  {#if page === 'schedule'}
-    <Schedule/>
-  {:else}
-    <Home/>
-  {/if}
+    {#if page === 'schedule'}
+        <Schedule/>
+    {:else if page === 'contact'}
+        <Contact/>
+    {:else if page === 'activities'}
+        <Activities/>
+    {:else if page === 'quotes'}
+        <Quotes/>
+    {:else}
+        <Home/>
+    {/if}
 </main>
 
 <style>
